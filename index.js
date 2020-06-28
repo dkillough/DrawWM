@@ -48,3 +48,20 @@ window.addEventListener('resize', resize); //update drawing canvas if user adjus
 document.addEventListener('mousemove', draw); // only draw on mouse move && m1 held
 document.addEventListener('mousedown', setPos); // reset position when mouse click
 document.addEventListener('mouseenter', setPos); // reset position if start drawing from outside of the frame
+
+/* CANVAS TO IMAGE METHOD; CALL W BUTTON PRESS */
+function canv2img(canv) {
+  var img = new Image();
+  img.src = canv.toDataURL("image/jpeg", 0.92); // value between 0 and 1 determines quality. 0.92 default.
+  console.log(img.src);
+  return img;
+}
+
+function clearCanvas() {
+  const context = canvas.getContext('2d');
+  context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function changeColor() {
+  context.strokeStyle = "red"; 
+}
